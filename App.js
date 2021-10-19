@@ -1,16 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
+import { createAppContainer, createSwitchNavigator } from "react-navigation";
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-
+import RecentPasscodes from './screens/recentPass'
+import GeneratePasscode from './screens/generatePass'
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppContainer/>
   );
 }
+var stackNav=createSwitchNavigator({
+  GeneratePasscode:{screen:GeneratePasscode},
+  RecentPasscode:{screen:RecentPasscodes}
 
+})
+var AppContainer=createAppContainer(stackNav)
 const styles = StyleSheet.create({
   container: {
     flex: 1,
